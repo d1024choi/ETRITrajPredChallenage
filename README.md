@@ -18,7 +18,7 @@ A driving scene, stored as pkl format, is a dictionary with four keys **log_id**
     * 'num_nodes' : The number of agents in the scene.
     * 'av_index' : The identification number of the AV.
     * 'id' : A list of the agents' IDs.
-    * 'type' : A numpy array of size 'num_nodes', identifying the classes of the agents. (0: vehicle, 1: pedestrian, 2: cyclist.)
+    * 'type' : A numpy array of size 'num_nodes', identifying object classes of the agents. (0: vehicle, 1: pedestrian, 2: cyclist.)
     * 'position' : A nunpy array of size 'num_nodes' x 80 x 3, indicating the trajectories of the agents.
     * 'heading' : A numpy array of size 'num_nodes' x 80, indicating heading directions of the agents in radians.
     * 'valid_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a (x,y,z) position of an agent at a specific time is available or not.
