@@ -3,7 +3,7 @@
 This repository provides potential challenge participants a gentle guide to ETRI trajectory prediction dataset and its corresponding devkit.
 
 <p align="center">
-  <img src="IMG/ETD.png" alt="ETD" width="300"/>
+  <img src="IMG/ETD.png" alt="ETD" width="400"/>
 </p>
 
 ## ETRI Trajectory Dataset (ETD)
