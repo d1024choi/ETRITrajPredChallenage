@@ -1,4 +1,4 @@
-# ETRI Trajectory Prediction Challenge 2025
+# ETRI Trajectory Dataset and Prediction Challenge 2025
 
 This repository provides potential challenge participants a gentle guide to ETRI trajectory prediction dataset and its corresponding devkit.
 
