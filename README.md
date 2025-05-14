@@ -56,7 +56,7 @@ Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
 Commonly used evaluation metrics are **minADE** and **minFDE**. The followings are the equations for the two metrics.
 
 <p align="center">
-  <img src="IMG/Eval_metrics.png" alt="Eval_metrics" width="600"/>
+  <img src="IMG/Eval_metrics.png" alt="Eval_metrics" width="300"/>
 </p>
 
 Here, \mathbf{Y}_{t} denotes the ground-truth position at time t and \hat{\mathbf{Y}}_{t}^{k} is its k-th prediction. T is the prediction time horizon.
