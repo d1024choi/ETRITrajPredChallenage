@@ -19,10 +19,10 @@ A driving scene, stored as pkl format, is a dictionary with four keys **log_id**
     * 'av_index' : The identification number of the AV.
     * 'id' : A list of the agents' IDs.
     * 'type' : A numpy array of size 'num_nodes', identifying object classes of the agents. (0: vehicle, 1: pedestrian, 2: cyclist.)
-    * 'position' : A nunpy array of size 'num_nodes' x 80 x 3, indicating the trajectories of the agents.
+    * 'position' : A numpy array of size 'num_nodes' x 80 x 3, indicating the trajectories of the agents.
     * 'heading' : A numpy array of size 'num_nodes' x 80, indicating heading directions of the agents in radians.
-    * 'valid_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a (x,y,z) position of an agent at a specific time is available or not.
-    * 'predict_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a position of an agent at a specific time must be predicted or not.
-    * 'category' : A numpy array of size 'num_nodes', indicating the categories of the agents. (0: fragmented track, 1: full track, but not to be predicted, 2: full track and to be predicted.) The prediction results of category 2 agents are only considered for the prediction performance calculation (e.g., minADE, minFDE).
+    * 'valid_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a (x,y,z) position of an agent at a specific time step is available or not.
+    * 'predict_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a position of an agent at a specific time step must be predicted or not.
+    * 'category' : A numpy array of size 'num_nodes', indicating categories of the agents. (0: fragmented track, 1: full track, but not to be predicted, 2: full track and to be predicted.) The prediction results of category 2 agents are only considered for the prediction performance calculation (e.g., minADE, minFDE).
     * 'wlh' : a numpy array of size 'num_nodes' x 3, indicating the width, length, and height of each agent.
     * 'num_valid_node' : The number of catetory 2 agents in the scene.
