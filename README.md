@@ -12,4 +12,17 @@ This repository provides potential challenge participants a gentle guide to ETRI
 
 ## Scene File Structure
 
-+ A driving scene, stored as pkl format, is a dictionary with four keys **'log_id'**, **'frm_idx'**, **'agent'**, and **'map'**. 
+A driving scene, stored as pkl format, is a dictionary with four keys **log_id**, **frm_idx**, **agent**, and **map**. **log_id** (_string format_) denotes the ID of the log the current scene is derived from and **frm_idx** (_integer_) means the time step at which the AV is located currently. **agent** and **map** are dictionaries, each containing trajectories and HD map elements, respectively.
+
++ **agent**
+    * 'num_nodes' : The number of agents in the scene.
+    * 'av_index' : The identification number of the AV.
+    * 'id' : A list of the agents' IDs.
+    * 'type' : A numpy array of size 'num_nodes', identifying the classes of the agents. (0: vehicle, 1: pedestrian, 2: cyclist.)
+    * 'position' : A nunpy array of size 'num_nodes' x 80 x 3, indicating the trajectories of the agents.
+    * 'heading' : A numpy array of size 'num_nodes' x 80, indicating heading directions of the agents in radians.
+    * 'valid_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a (x,y,z) position of an agent at a specific time is available or not.
+    * 'predict_mask' : A boolean type numpy array of size 'num_nodes' x 80, indicating whether a position of an agent at a specific time must be predicted or not.
+    * 'category' : A numpy array of size 'num_nodes', indicating the categories of the agents. (0: fragmented track, 1: full track, but not to be predicted, 2: full track and to be predicted.) The prediction results of category 2 agents are only considered for the prediction performance calculation (e.g., minADE, minFDE).
+    * 'wlh' : a numpy array of size 'num_nodes' x 3, indicating the width, length, and height of each agent.
+    * 'num_valid_node' : The number of catetory 2 agents in the scene.
