@@ -59,4 +59,4 @@ Commonly used evaluation metrics are **minADE** and **minFDE**. The followings a
   <img src="IMG/Eval_metrics.png" alt="Eval_metrics" width="300"/>
 </p>
 
-Here, Y_t denotes the ground-truth position at time t and hat{Y}_t^k is its k-th prediction. T and K respectively are the prediction time horizon and the number of the predictions. Note that, throughout the challenge, we set T=60, K=6.
+Here, Y_t denotes the ground-truth position at time t and hat{Y}_t^k is its k-th prediction. T and K respectively are the prediction time horizon and the number of the predictions. Note that, throughout the challenge, we set T=60, K=6. 'evaluation metrics.py' shows an example of calculating **minADE** and **minFDE** given the ground-truth trajectory and its multiple predictions.
