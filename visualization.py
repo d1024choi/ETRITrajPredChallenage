@@ -4,8 +4,71 @@
 # LICENSE file in the root directory of this source tree.
 # For more information, contact d1024.choi@etri.re.kr
 
-from VossHelper import Pose
 from libraries import *
+class Pose:
+
+    def __init__(self, heading: float, position: np.ndarray, wlh: np.ndarray):
+        '''
+        heading (1) : radian
+        position (1 x 2) : meter
+        wlh (1 x 3) : meter
+        '''
+
+        self.heading = heading
+        self.position = position[:, :2].reshape(1, 2)  # global position
+        self.xyz = position
+        self.wlh = wlh
+
+        self.R_e2g = rotation_matrix(heading) # ego-centric to global coordinate
+        self.R_g2e = np.linalg.inv(self.R_e2g) # global to ego-centric coordinate
+        self.bbox = self.get_bbox()
+
+    def to_agent(self, positions):
+        '''
+        Global to Agent Centric Coordinate System Conversion
+
+        positions (N x 2)
+        output (N x 2)
+        '''
+
+        trans = positions - self.position # seq_len x 2
+        return np.matmul(self.R_g2e, trans.T).T
+
+    def to_global(self, positions):
+        '''
+        Agent Centric to Global Coordinate System Conversion
+
+        positions (N x 2)
+        output (N x 2)
+        '''
+
+        return np.matmul(self.R_e2g, positions.T).T + self.position
+
+    def get_bbox(self):
+        '''
+
+           (bottom)          (up)
+
+            front              front
+        b0 -------- b3    b4 -------- b7
+           |      |          |      |
+           |      |          |      |
+           |      |          |      |
+           |      |          |      |
+        b1 -------- b2    b5 -------- b6
+             rear              rear
+        '''
+
+        # 2D bbox
+        w, l, h = self.wlh
+        corner_b0 = np.array([l / 2, w / 2]).reshape(1, 2)
+        corner_b1 = np.array([-l / 2, w / 2]).reshape(1, 2)
+        corner_b2 = np.array([-l / 2, -w / 2]).reshape(1, 2)
+        corner_b3 = np.array([l / 2, -w / 2]).reshape(1, 2)
+        bbox = np.concatenate([corner_b0, corner_b1, corner_b2, corner_b3], axis=0)  # 4 x 2
+
+        # agent to global coord
+        return self.to_global(bbox)
 
 class Visualizer:
     '''
@@ -251,3 +314,9 @@ def make_rot_matrix_from_yaw(yaw):
     return np.array(m_R)
 
 
+def rotation_matrix(heading):
+
+    m_cos = np.cos(heading)
+    m_sin = np.sin(heading)
+    m_R = np.array([m_cos, -1 * m_sin, m_sin, m_cos]).reshape(2, 2)
+    return m_R
