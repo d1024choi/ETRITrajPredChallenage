@@ -44,7 +44,7 @@ A driving scene, stored as pkl format, is a dictionary with four keys **log_id**
 Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
 
 ## Devkit
-'demo.py' in this repository visualizes the driving scene in a scene pickle file.
+'demo.py' in this repository visualizes the driving scene in a pickle file. Required libraries are described in 'libraries.py'.
 
 <p align="center">
   <img src="IMG/ETD_vis.png" alt="ETD_vis" width="600"/>
