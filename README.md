@@ -39,3 +39,14 @@ A driving scene, stored as pkl format, is a dictionary with four keys **log_id**
     * 'Ori' : A numpy array of the positions' orientation (in radian).
     * 'PrvLinkID' : The lane segment ID preceding the current lane segment.
     * 'NxtLinkID' : The lane segment ID succeding the current lane segment.
+
+## Download
+Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
+
+## Devkit
+'demo.py' in this repository visualizes the driving scene in a scene pickle file.
+
+<p align="center">
+  <img src="IMG/ETD.png" alt="ETD_vis" width="400"/>
+</p>
+
