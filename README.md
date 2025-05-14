@@ -47,6 +47,6 @@ Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
 'demo.py' in this repository visualizes the driving scene in a scene pickle file.
 
 <p align="center">
-  <img src="IMG/ETD.png" alt="ETD_vis" width="400"/>
+  <img src="IMG/ETD_vis.png" alt="ETD_vis" width="400"/>
 </p>
 
