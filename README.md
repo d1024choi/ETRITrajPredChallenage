@@ -44,9 +44,13 @@ A driving scene, stored as pkl format, is a dictionary with four keys **log_id**
 Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
 
 ## Devkit
-'demo.py' in this repository visualizes the driving scene in a pickle file. Required libraries are described in 'libraries.py'.
++ 'demo.py' in this repository visualizes the driving scene in a pickle file. Required libraries are described in 'libraries.py'.
++ 'argoverse2_to_qcnet_format.py' converts Argoverse2 format pickle files to the files compatible with QCNet. (https://github.com/ZikangZhou/QCNet). The original source code of QCNet is slightly modified to be trained on ETD. The training code as well as the trained network parameters will be released soon.
+
 
 <p align="center">
   <img src="IMG/ETD_vis.png" alt="ETD_vis" width="600"/>
 </p>
 
+## Evaluation Metric
+Commonly used evaluation metrics are **minADE** and **minFDE**. The followings are the equations for the two metrics.
