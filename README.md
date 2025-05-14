@@ -59,4 +59,4 @@ Commonly used evaluation metrics are **minADE** and **minFDE**. The followings a
   <img src="IMG/Eval_metrics.png" alt="Eval_metrics" width="300"/>
 </p>
 
-Here, \mathbf{Y}__{t} denotes the ground-truth position at time t and $\hat{\mathbf{Y}}__{t}^{k}$ is its k-th prediction. T and K respectively are the prediction time horizon and the number of the predictions. Note that, throughout the challenge, we set T=60, K=6.
+Here, \mathbf{Y}__{t} denotes the ground-truth position at time t and \hat{\mathbf{Y}}__{t}^{k} is its k-th prediction. T and K respectively are the prediction time horizon and the number of the predictions. Note that, throughout the challenge, we set T=60, K=6.
