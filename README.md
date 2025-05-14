@@ -47,6 +47,9 @@ Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
 + 'demo.py' in this repository visualizes the driving scene in a pickle file. Required libraries are described in 'libraries.py'.
 + 'argoverse2_to_qcnet_format.py' converts Argoverse2 format pickle files to the files compatible with QCNet. (https://github.com/ZikangZhou/QCNet). The original source code of QCNet is slightly modified to be trained on ETD. The training code as well as the trained network parameters will be released soon.
 
+## Trajectory Prediction Challenge
++ The goal of this challenge is to build and train a neural network that, given 2 second observations (20 points) and HD map elements, predicts future positions of agents in a scene up to 6 seconds (60 points).
++ The models must predict at least 6 possible futures for each agent in the scene. If the number of the future predictions are greater than 6, randomly picked 6 trajectories will be used for the assessment.
 
 <p align="center">
   <img src="IMG/ETD_vis.png" alt="ETD_vis" width="600"/>
