@@ -26,3 +26,16 @@ A driving scene, stored as pkl format, is a dictionary with four keys **log_id**
     * 'category' : A numpy array of size 'num_nodes', indicating categories of the agents. (0: fragmented track, 1: full track, but not to be predicted, 2: full track and to be predicted.) The prediction results of category 2 agents are only considered for the prediction performance calculation (e.g., minADE, minFDE).
     * 'wlh' : a numpy array of size 'num_nodes' x 3, indicating the width, length, and height of each agent.
     * 'num_valid_node' : The number of catetory 2 agents in the scene.
+
++ **map[i]**
+    * 'ID' : The identification number of the lane segment.
+    * 'Type' : The type of the lane segment. (0: None, 1: General Straight, 2: Intersection Straight, 3: Intersection Left, 4: Intersection Right, 5: Intersectoin U-Trun, 6: Left Pocket Lane, 7: Right Pocket Lane, 8: Unprotected Left Turn).
+    * 'LLinkID' : The ID of the lane segment located left side of the current lane.
+    * 'RLinkID' : The ID of the lane segment located right side of the current lane.
+    * 'SNodeID' : The node ID whose position matches the start point of the lane segment.
+    * 'ENodeID' : The node ID whose position matches the end point of the lane segment.
+    * 'Speed' : The maximum speed limit.
+    * 'Pts' : A numpy array of sequential positions consisting of the lane segment.
+    * 'Ori' : A numpy array of the positions' orientation (in radian).
+    * 'PrvLinkID' : The lane segment ID preceding the current lane segment.
+    * 'NxtLinkID' : The lane segment ID succeding the current lane segment.
