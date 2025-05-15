@@ -55,6 +55,7 @@ Feel free to contact kimjy@etri.re.kr or d1024.choi@etri.re.kr
   <img src="IMG/ETD_vis.png" alt="ETD_vis" width="600"/>
 </p>
 
+
 ## Evaluation Metric
 Commonly used evaluation metrics are **minADE** and **minFDE**. The followings are the equations for the two metrics.
 
@@ -63,3 +64,6 @@ Commonly used evaluation metrics are **minADE** and **minFDE**. The followings a
 </p>
 
 Here, Y_t denotes the ground-truth position at time t and hat{Y}_t^k is its k-th prediction. T and K respectively are the prediction time horizon and the number of the predictions. Note that, throughout the challenge, we set T=60, K=6. 'evaluation metrics.py' shows an example of calculating **minADE** and **minFDE** given the ground-truth trajectory and its multiple predictions.
+
+## Submission
+Given masked test data (scene files without the positions and headings of the agents over future horizon), predict K=6 possible future trajectories for each agent in a scene. The prediction results must be stored following the method described in 'prediction_results_submission.py'. Zip the pickle files containing the prediction results as a single zip file of the name 'prediction_result_{participants number}.zip' (e.g., prediction_result_1024.zip).
