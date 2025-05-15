@@ -6,6 +6,9 @@
 
 from libraries import *
 
+def fake_prediction_model(data, best_k, pred_len):
+    return np.zeros(shape=(data['agent']['num_nodes'], best_k, pred_len, 2))
+
 def main():
 
     # parameter setting
@@ -29,11 +32,15 @@ def main():
         with open(os.path.join(args.source_path, file_name), 'rb') as f:
             data = pickle.load(f)
 
+        # do prediction
+        predictions = fake_prediction_model(data, args.best_k, pred_len)
+
+        # save the prediction result for the submission
         agent = {'num_nodes': data['agent']['num_nodes'],
                  'num_valid_nodes': data['agent']['num_valid_nodes'],
                  'id': data['agent']['id'],
                  'category': data['agent']['category'],
-                 'prediction': np.zeros(shape=(data['agent']['num_nodes'], args.best_k, pred_len, 2))}
+                 'predictions': predictions}
         scene = {'log_id': data['log_id'], 'frm_idx': data['frm_idx'], 'agent': agent}
 
         # save data
