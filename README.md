@@ -36,7 +36,7 @@ A driving scene, stored in pkl format, is a dictionary with four keys **log_id**
     * 'SNodeID' : The node ID whose position matches the start point of the lane segment.
     * 'ENodeID' : The node ID whose position matches the end point of the lane segment.
     * 'Speed' : The maximum speed limit.
-    * 'Pts' : A numpy array of sequential positions consisting of the lane segment.
+    * 'Pts' : A numpy array consisting of sequential (x, y) positions and representing the lane segment.
     * 'Ori' : A numpy array of the positions' orientation (in radian).
     * 'PrvLinkID' : The lane segment ID preceding the current lane segment.
     * 'NxtLinkID' : The lane segment ID succeding the current lane segment.
