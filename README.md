@@ -30,7 +30,7 @@ A driving scene, stored in pkl format, is a dictionary with four keys **log_id**
 
 + **map[i]**
     * 'ID' : The identification number of the lane segment.
-    * 'Type' : The type of the lane segment. (0: None, 1: General Straight, 2: Intersection Straight, 3: Intersection Left, 4: Intersection Right, 5: Intersectoin U-Trun, 6: Left Pocket Lane, 7: Right Pocket Lane, 8: Unprotected Left Turn).
+    * 'Type' : The type of the lane segment. (0: None, 1: General Straight, 2: Intersection Straight, 3: Intersection Left, 4: Intersection Right, 5: Intersectoin U-Turn, 6: Left Pocket Lane, 7: Right Pocket Lane, 8: Unprotected Left Turn).
     * 'LLinkID' : The ID of the lane segment located left side of the current lane.
     * 'RLinkID' : The ID of the lane segment located right side of the current lane.
     * 'SNodeID' : The node ID whose position matches the start point of the lane segment.
