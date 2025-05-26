@@ -13,7 +13,7 @@ This repository provides potential challenge participants with a gentle guide to
   
 ## Scene File Structure
 
-A driving scene, stored in pkl format, is a dictionary with four keys **log_id**, **frm_idx**, **agent**, and **map**. **log_id** (_string format_) denotes the ID of the log the current scene is derived from and **frm_idx** (_integer_) means the time step at which the AV is located currently. **agent** is a dictionary containing agents' trajectories and class information. **map** is a list of dictionaries, each containing a lane segment of HD map.
+A driving scene, stored in pkl format, is a dictionary with four keys **log_id**, **frm_idx**, **agent**, and **map**. **log_id** (_string format_) denotes the ID of the log from which the current scene is derived and **frm_idx** (_integer_) means the time step at which the AV is located currently. **agent** is a dictionary containing agents' trajectories and class information. **map** is a list of dictionaries, each containing a lane segment of HD map.
 
 + **agent**
     * 'num_nodes' : The number of agents in the scene.
