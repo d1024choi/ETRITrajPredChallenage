@@ -8,8 +8,9 @@ This repository provides potential challenge participants with a gentle guide to
 
 ## ETRI Trajectory Dataset (ETD)
  
-+ We acquired more than 100 driving logs, each lasting around 30 seconds, containing trajectories of our autonomous vehicle as well as its surrounding objects (e.g., vehicles, pedestrians), and sampled at 10Hz, in the vicinities of ETRI. We split the driving logs into two groups, one for training and the other for test. From a log, we generated roughly 280 driving scenes, each containing 2 second observed trajectories, 6 second future trajectories, and HD map elements (e.g., lane centerlines) at a specific time stamp. As a result, we could generate 25,000 scenes for training and 5,000 scenes for test whose format is similar to that of Argoverse2 (https://www.argoverse.org/av2.html#forecasting-link). 
++ We acquired more than 100 driving logs, each lasting around 30 seconds and containing trajectories of our autonomous vehicle as well as its surrounding objects (e.g., vehicles, pedestrians), sampled at 10Hz in the vicinities of ETRI. We split the driving logs into two groups: one for training and the other for testing. From a log, we generated roughly 280 driving scenes, each containing 2-second observed trajectories, 6-second future trajectories, and HD map elements (e.g., lane centerlines) at a specific timestamp. As a result, we generated 17,908 scenes for training and 2,831 scenes for testing, whose format is similar to that of Argoverse2 (https://www.argoverse.org/av2.html#forecasting-link).
 
+  
 ## Scene File Structure
 
 A driving scene, stored in pkl format, is a dictionary with four keys **log_id**, **frm_idx**, **agent**, and **map**. **log_id** (_string format_) denotes the ID of the log the current scene is derived from and **frm_idx** (_integer_) means the time step at which the AV is located currently. **agent** is a dictionary containing agents' trajectories and class information. **map** is a list of dictionaries, each containing a lane segment of HD map.
