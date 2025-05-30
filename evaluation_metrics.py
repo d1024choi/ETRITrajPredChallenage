@@ -43,10 +43,13 @@ class EvaluationMetrics:
         error = self.position_wise_distance(gt, pred) # num_agents x (num_candi + alpha) x seq_len
         error = error[:, :self.num_of_candi] # num_agents x num_candi x seq_len
 
-        minADE = error.mean(-1).min(-1)
-        minFDE = error[..., -1].min(-1)
+        minADE6 = error.mean(-1).min(-1)[0]
+        minFDE6 = error[..., -1].min(-1)[0]
 
-        return minADE[0], minFDE[0]
+        minADE1 = error.mean(-1)[:, 0]
+        minFDE1 = error[..., -1][:, 0]
+
+        return minADE1, minFDE1, minADE6, minFDE6
 
 
 def main():
@@ -62,18 +65,22 @@ def main():
     future_time_horizon = int(args.future_horizon_seconds * args.target_sample_period)
     EM = EvaluationMetrics(future_time_horizon, args.num_of_candi)
 
-    total_minADE, total_minFDE = [], []
+    total_minADE1, total_minFDE1 = [], []
+    total_minADE6, total_minFDE6 = [], []
     for i in range(100):
 
         num_agents = random.randint(1, 100)
         gt = torch.randn(size=(num_agents, future_time_horizon, 2))
         pred = torch.randn(size=(num_agents, args.num_of_candi, future_time_horizon, 2))
 
-        minADE, minFDE = EM(gt, pred)
-        total_minADE += minADE.tolist()
-        total_minFDE += minFDE.tolist()
+        minADE1, minFDE1, minADE6, minFDE6 = EM(gt, pred)
+        total_minADE1 += minADE1.tolist()
+        total_minFDE1 += minFDE1.tolist()
+        total_minADE6 += minADE6.tolist()
+        total_minFDE6 += minFDE6.tolist()
 
-    print(">> minADE : %.4f, minFDE : %.4f" % (np.mean(total_minADE), np.mean(total_minFDE)))
+    print(">> minADE1 : %.4f, minFDE1 : %.4f" % (np.mean(total_minADE1), np.mean(total_minFDE1)))
+    print(">> minADE6 : %.4f, minFDE6 : %.4f" % (np.mean(total_minADE6), np.mean(total_minFDE6)))
 
 
 
